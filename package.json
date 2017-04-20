@@ -1,1 +1,40 @@
-{     "devDependencies": {         "templar": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-templar",     "homepage": "https://github.com/npmtest/node-npmtest-templar",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-templar.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  [templar (v0.2.2)](https://github.com/isaacs/templar)  [![npm package](https://img.shields.io/npm/v/npmtest-templar.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-templar) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-templar.svg)](https://travis-ci.org/npmtest/node-npmtest-templar)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "templar": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-templar",
+    "keywords": [
+        "coverage",
+        "test",
+        "templar"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_templar.js",
+    "name": "npmtest-templar",
+    "nameAlias": "npmtest_templar",
+    "nameOriginal": "npmtest-templar",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-templar.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
